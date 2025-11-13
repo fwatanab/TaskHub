@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import TaskModal from "@/components/tasks/TaskModal";
 import type { Task } from "@/types/task";
 
 type Props = {
@@ -17,6 +18,7 @@ const TaskItem = ({ task, isMutating, onToggleState, onDelete, onEdit }: Props) 
   const [title, setTitle] = useState(task.title);
   const [detail, setDetail] = useState(task.detail ?? "");
   const [localError, setLocalError] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     setTitle(task.title);
@@ -108,17 +110,42 @@ const TaskItem = ({ task, isMutating, onToggleState, onDelete, onEdit }: Props) 
         </div>
       ) : (
         <div className="flex items-start justify-between gap-4">
-          <div className="space-y-3">
-            <p className="text-lg font-semibold leading-tight text-white">
+          <button
+            type="button"
+            onClick={() => setIsModalOpen(true)}
+            className="flex-1 space-y-3 text-left min-w-0"
+          >
+            <p
+              className="text-lg font-semibold leading-tight text-white"
+              style={{
+                display: "block",
+                width: "100%",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                whiteSpace: "nowrap",
+              }}
+            >
               {task.title}
             </p>
             {task.detail && (
-              <p className="text-sm text-slate-400 break-words">{task.detail}</p>
+              <p
+                className="text-sm text-slate-400"
+                style={{
+                  display: "-webkit-box",
+                  WebkitBoxOrient: "vertical",
+                  WebkitLineClamp: 2,
+                  overflow: "hidden",
+                  wordBreak: "break-word",
+                  overflowWrap: "anywhere",
+                }}
+              >
+                {task.detail}
+              </p>
             )}
             <p className="text-xs uppercase tracking-wide text-slate-500">
               追加: {new Date(task.createdAt).toLocaleString()}
             </p>
-          </div>
+          </button>
           <div className="flex flex-col items-end gap-3">
             <button
               type="button"
@@ -149,9 +176,18 @@ const TaskItem = ({ task, isMutating, onToggleState, onDelete, onEdit }: Props) 
           </div>
         </div>
       )}
+      {isModalOpen && (
+        <TaskModal
+          task={task}
+          onClose={() => setIsModalOpen(false)}
+          onEditClick={() => {
+            setIsModalOpen(false);
+            setIsEditing(true);
+          }}
+        />
+      )}
     </li>
   );
 };
 
 export default TaskItem;
-
