@@ -22,7 +22,7 @@ const Home = () => {
   }
 
   return (
-    <main className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-16 lg:px-10">
+    <main className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-16 lg:px-0">
       <section className="flex flex-col gap-4 text-left">
         <p className="text-xs uppercase tracking-[0.3em] text-slate-400">
           TaskHub
@@ -33,7 +33,6 @@ const Home = () => {
         </h1>
         <p className="max-w-2xl text-base leading-relaxed text-slate-300">
           リアルタイムで進捗を把握し、チーム全体の集中力を高めるシンプルな体験を。
-          CRUD 機能を段階的に拡張しながら理想のワークフローを構築しましょう。
         </p>
       </section>
     <div className="grid gap-6 lg:grid-cols-1">
