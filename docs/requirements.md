@@ -156,7 +156,9 @@ Webアプリ開発において、フロントエンド・バックエンド・�
 | 項目 | 内容 |
 | --- | --- |
 | 環境変数 | `.env` / `.env.local` で `DATABASE_URL`, `NEXTAUTH_SECRET`, `GOOGLE_CLIENT_ID` 等を管理。 `.env.sample` あり。 |
+| Node.js バージョン | 20.9.0 以上（Next.js 16 / Prisma 6 が要求）。 |
 | ローカル実行 | `npm run dev` |
+| ビルド | `npm run build`（`prisma generate && next build` を実行）。 |
 | DB マイグレーション | `npx prisma migrate dev` |
-| 本番デプロイ | Vercel (Next.js) + Neon (DB) |
+| 本番デプロイ | Vercel (Next.js) + Neon (DB)、Vercel ビルドでも `npm run build` を実行。 |
 | テスト | 任意で Postman / curl / Jest など |
