@@ -22,7 +22,7 @@ const Home = () => {
   }
 
   return (
-    <main className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-16 lg:px-0">
+    <main className="mx-auto flex w-full max-w-full flex-col gap-10 px-4 py-16 sm:px-6 lg:max-w-6xl lg:px-0">
       <section className="flex flex-col gap-4 text-left">
         <p className="text-xs uppercase tracking-[0.3em] text-slate-400">
           TaskHub
