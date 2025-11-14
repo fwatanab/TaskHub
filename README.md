@@ -21,26 +21,30 @@ UI には Tailwind CSS を活用し、「カード一覧＋モーダル詳細」
 
 ## セットアップ
 
-1. 依存関係のインストール
+1. Node.js 20.9 以降を利用する  
+   Next.js 16 / Prisma 6 の要件です。`nvm use 20.18.0` などで切り替えてください。
+
+2. 依存関係のインストール
 
 ```bash
 npm install
 ```
 
-2. Prisma のセットアップ  
+3. Prisma のセットアップ  
 
 ```bash
 npx prisma generate
 npx prisma migrate dev
 ```
 
-3. 開発サーバー
+4. 開発サーバー
 
 ```bash
 npm run dev
 ```
 
-4. ビルド / 本番起動
+5. ビルド / 本番起動  
+   `npm run build` は `prisma generate && next build` を実行します。
 
 ```bash
 npm run build
@@ -84,5 +88,5 @@ src/
 - タイトルは必須、詳細は任意で null を許容しています。
 - 一覧→モーダルの遷移で編集ボタンを押すとそのままインライン編集モードに突入します。
 - Google のアカウント選択を常に表示させるため `prompt: "select_account"` を付けています。
-
+- デプロイ（Vercel）では `npm run build` を Build Command に指定し、Prisma Client を Linux 向けバイナリ込みで自動生成しています。
 
