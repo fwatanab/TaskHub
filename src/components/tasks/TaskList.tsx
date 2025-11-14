@@ -24,8 +24,8 @@ const TaskList = ({
   onEdit,
 }: Props) => {
   const renderStateMessage = (message: string, role?: "status" | "alert") => (
-    <section className="rounded-3xl border border-white/10 bg-slate-900/60 p-7 shadow-[0_20px_70px_rgba(0,0,0,0.45)] backdrop-blur-2xl">
-      <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+    <section className="w-full rounded-3xl border border-white/10 bg-slate-900/60 p-5 shadow-[0_20px_70px_rgba(0,0,0,0.45)] backdrop-blur-2xl sm:p-7">
+      <div className="flex flex-col items-start gap-2 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <p className="text-xs uppercase tracking-[0.3em] text-slate-400">
             タスク一覧
@@ -34,7 +34,7 @@ const TaskList = ({
         </div>
       </div>
       <div
-        className="mt-6 rounded-2xl border border-dashed border-white/10 bg-white/5 px-6 py-8 text-center text-sm text-slate-400"
+        className="mt-6 rounded-2xl border border-dashed border-white/10 bg-white/5 px-4 py-6 text-center text-sm text-slate-400 sm:px-6 sm:py-8"
         role={role}
       >
         {message}
@@ -55,8 +55,8 @@ const TaskList = ({
   }
 
   return (
-    <section className="rounded-3xl border border-white/10 bg-slate-900/60 p-7 shadow-[0_20px_70px_rgba(0,0,0,0.45)] backdrop-blur-2xl">
-      <header className="mb-6 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+    <section className="w-full rounded-3xl border border-white/10 bg-slate-900/60 p-5 shadow-[0_20px_70px_rgba(0,0,0,0.45)] backdrop-blur-2xl sm:p-7">
+      <header className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <p className="text-xs uppercase tracking-[0.3em] text-slate-400">
             タスク一覧
