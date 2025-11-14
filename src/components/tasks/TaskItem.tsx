@@ -89,11 +89,11 @@ const TaskItem = ({ task, isMutating, onToggleState, onDelete, onEdit }: Props) 
               {localError}
             </p>
           )}
-          <div className="flex gap-3">
+          <div className="flex flex-col gap-3 sm:flex-row">
             <button
               type="button"
               onClick={handleSave}
-              className="inline-flex flex-1 items-center justify-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:border-white/40 disabled:opacity-60"
+              className="inline-flex w-full items-center justify-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:border-white/40 disabled:opacity-60 sm:flex-1"
               disabled={isMutating}
             >
               保存
@@ -101,7 +101,7 @@ const TaskItem = ({ task, isMutating, onToggleState, onDelete, onEdit }: Props) 
             <button
               type="button"
               onClick={handleCancel}
-              className="inline-flex flex-1 items-center justify-center rounded-full border border-white/10 px-4 py-2 text-sm text-slate-300 transition hover:border-white/30 disabled:opacity-60"
+              className="inline-flex w-full items-center justify-center rounded-full border border-white/10 px-4 py-2 text-sm text-slate-300 transition hover:border-white/30 disabled:opacity-60 sm:flex-1"
               disabled={isMutating}
             >
               キャンセル
@@ -109,20 +109,21 @@ const TaskItem = ({ task, isMutating, onToggleState, onDelete, onEdit }: Props) 
           </div>
         </div>
       ) : (
-        <div className="flex items-start justify-between gap-4">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
           <button
             type="button"
             onClick={() => setIsModalOpen(true)}
-            className="flex-1 space-y-3 text-left min-w-0"
+            className="min-w-0 flex-1 space-y-3 text-left"
           >
             <p
               className="text-lg font-semibold leading-tight text-white"
               style={{
-                display: "block",
-                width: "100%",
+                display: "-webkit-box",
+                WebkitBoxOrient: "vertical",
+                WebkitLineClamp: 2,
                 overflow: "hidden",
-                textOverflow: "ellipsis",
-                whiteSpace: "nowrap",
+                wordBreak: "break-word",
+                overflowWrap: "anywhere",
               }}
             >
               {task.title}
