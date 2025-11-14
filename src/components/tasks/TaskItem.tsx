@@ -109,7 +109,7 @@ const TaskItem = ({ task, isMutating, onToggleState, onDelete, onEdit }: Props) 
           </div>
         </div>
       ) : (
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+        <div className="flex items-start gap-4">
           <button
             type="button"
             onClick={() => setIsModalOpen(true)}
@@ -147,7 +147,7 @@ const TaskItem = ({ task, isMutating, onToggleState, onDelete, onEdit }: Props) 
               追加: {new Date(task.createdAt).toLocaleString()}
             </p>
           </button>
-          <div className="flex flex-col items-end gap-3">
+          <div className="flex flex-shrink-0 flex-col items-end gap-3">
             <button
               type="button"
               onClick={() => onToggleState(task.id, !task.state)}
